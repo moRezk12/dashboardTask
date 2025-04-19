@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { AnalyticsService } from 'src/app/core/services/Analytics/analytics.service';
 
 
 @Component({
@@ -9,16 +10,26 @@ import * as AOS from 'aos';
 })
 export class AnalyticsCardsComponent implements OnInit {
 
+  constructor(private analyticsServices : AnalyticsService ) { }
+
   ngOnInit() {
     AOS.init();
+    this.getAllAnalytics();
   }
 
-  analytics = [
-    { title: 'Total Revenue', value: '$950', icon: '📈' , presentP : '+3,4%' },
-    { title: 'Total Revenue', value: '$950', icon: '📈' , presentN : '-3,4%' },
-    { title: 'Items Sold', value: '1,250', icon: '🛒' },
-    { title: 'Active Users', value: '785', icon: '👤' },
-  ];
+  analytics : any
+
+  getAllAnalytics(){
+    this.analyticsServices.getAnalytics().subscribe({
+      next : (res) => {
+        console.log(res);
+        this.analytics = res
+      },
+      error : (err) => {
+        console.log(err);
+      }
+    })
+  }
 
 
 }

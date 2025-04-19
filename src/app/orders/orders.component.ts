@@ -1,5 +1,5 @@
+import { OrderService } from './../core/services/order/order.service';
 import { Component, OnInit } from '@angular/core';
-import { OrderService } from '../core/services/order.service';
 import { Order } from '../core/models/order';
 import * as AOS from 'aos';
 
@@ -17,16 +17,26 @@ export class OrdersComponent implements OnInit {
   showmodel: boolean = false;
   selectedOrder: Order | undefined;
 
-  constructor(private orderService: OrderService) {}
+  constructor(private OrderService: OrderService) {}
 
   ngOnInit(): void {
 
     AOS.init();
-
-    this.orderService.getOrders().subscribe(data => {
-      this.orders = data;
-    });
+    this.getAllOrders();
   }
+
+  getAllOrders() {
+    this.OrderService.getOrders().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.orders = res;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+
 
   showOrderDetails(order: Order) {
     this.selectedOrder = order;
