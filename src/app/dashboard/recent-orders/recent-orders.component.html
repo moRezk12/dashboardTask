@@ -1,0 +1,33 @@
+<div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" class="recent-orders mt-[30px] ">
+  <h2>Recent Orders</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders | paginate: { itemsPerPage: 5, currentPage: page }">
+        <td>{{ order.itemName }}</td>
+        <td>{{ order.quantity }}</td>
+        <td>{{ order.date }}</td>
+        <td>${{ order.price }}</td>
+        <td>
+          <span class="status" [ngClass]="order.status.toLowerCase()">
+            {{ order.status }}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls
+    (pageChange)="page = $event"
+    [autoHide]="true"
+    class="pagination"
+  ></pagination-controls>
+</div>

@@ -1,0 +1,67 @@
+<div data-aos="fade-up" data-aos-duration="1000" class="p-4 bg-white rounded-xl shadow-md overflow-x-auto">
+  <h2 class="text-xl font-bold mb-4">All Orders</h2>
+  <table class="min-w-full text-sm text-left">
+    <thead class="bg-gray-100 text-gray-700">
+      <tr>
+        <th class="py-3 px-4">#</th>
+        <th class="py-3 px-4">Item Name</th>
+        <th class="py-3 px-4">Quantity</th>
+        <th class="py-3 px-4">Date</th>
+        <th class="py-3 px-4">Price</th>
+        <th class="py-3 px-4">Status</th>
+        <th class="py-3 px-4">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders | paginate: { itemsPerPage: pageSize, currentPage: currentPage } ; let i = index" class="border-t">
+        <td class="py-2 px-4">{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+        <td class="py-2 px-4">{{ order.itemName }}</td>
+        <td class="py-2 px-4">{{ order.quantity }}</td>
+        <td class="py-2 px-4">{{ order.date | date:'shortDate' }}</td>
+        <td class="py-2 px-4">{{ order.price | currency }}</td>
+        <td class="py-2 px-4">
+          <span [ngClass]="{
+            'bg-green-100 text-green-600': order.status === 'Delivered',
+            'bg-yellow-100 text-yellow-600': order.status === 'Pending',
+            'bg-red-100 text-red-600': order.status === 'Cancelled'
+          }"
+          class="px-3 py-1 rounded-full text-xs font-semibold">
+            {{ order.status }}
+          </span>
+        </td>
+        <td>
+          <button (click)="showOrderDetails(order)" class="px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600">
+            Show
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <pagination-controls
+    (pageChange)="currentPage = $event"
+    [autoHide]="true"
+    [responsive]="true"
+    class="pagination">
+  </pagination-controls>
+
+
+</div>
+
+
+
+<!-- Show Order -->
+<div *ngIf="showmodel" class="fixed inset-0 flex items-center   justify-center bg-black bg-opacity-50">
+  <div class="bg-white p-4 rounded-lg shadow-md w-[80%] md:w-[40%] space-y-4 ">
+    <h2 class="text-xl font-bold mb-4">Order Details</h2>
+    <p><strong>Item Name:</strong> {{ selectedOrder?.itemName }}</p>
+    <p><strong>Quantity:</strong> {{ selectedOrder?.quantity }}</p>
+    <p><strong>Date:</strong> {{ selectedOrder?.date | date:'shortDate' }}</p>
+    <p><strong>Price:</strong> {{ selectedOrder?.price | currency }}</p>
+    <p><strong>Status:</strong> {{ selectedOrder?.status }}</p>
+    <button (click)="closeOrderDetails()" class="mt-4 px-3 py-1 rounded bg-blue-500 text-white hover:bg-blue-600">
+      Close
+    </button>
+  </div>
+</div>

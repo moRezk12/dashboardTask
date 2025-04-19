@@ -1,0 +1,14 @@
+<div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="500"  class="chart-container bg-white p-4 rounded-[20px] ">
+  <h2 class="text-xl font-bold" >
+    Report
+  </h2>
+  <canvas
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [type]="lineChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  ></canvas>
+
+</div>

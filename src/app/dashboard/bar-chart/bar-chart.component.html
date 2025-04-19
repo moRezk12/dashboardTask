@@ -1,0 +1,13 @@
+<div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="800"   class="chart-container bg-white p-4 rounded-[20px] ">
+  <h2 class="text-xl font-bold" >
+    Visit
+  </h2>
+  <canvas
+    baseChart
+    [data]="barChartData"
+    [options]="barChartOptions"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+  ></canvas>
+
+</div>

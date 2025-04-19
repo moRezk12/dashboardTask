@@ -1,0 +1,60 @@
+
+
+<div class=" bg-white shadow-md h-full hidden sm:block p-4">
+  <nav class="space-y-2 mt-[60px]">
+    <a data-aos="fade-down" data-aos-duration="1000" routerLink="/dashboard" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-house"></i>
+      <span class="hidden md:block" >Dashboard</span>
+    </a>
+
+    <a  data-aos="fade-up" data-aos-duration="1100" routerLink="/orders" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="hidden md:block" >Orders</span>
+    </a>
+
+    <a  data-aos="fade-left" data-aos-duration="1200" routerLink="/items" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-boxes-stacked"></i>
+      <span class="hidden md:block" >Items</span>
+    </a>
+
+    <a  data-aos="fade-right" data-aos-duration="1300" routerLink="/transactions" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-right-left"></i>
+      <span class="hidden md:block" >Transactions</span>
+    </a>
+
+    <a  data-aos="fade-up" data-aos-duration="1400" routerLink="/reports" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-chart-line"></i>
+      <span class="hidden md:block" >Reports</span>
+    </a>
+
+    <hr class="my-2">
+
+    <a  data-aos="fade-down" data-aos-duration="1500" routerLink="/messages" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-envelope"></i>
+      <span class="hidden md:block" >Messages</span>
+    </a>
+
+    <a  data-aos="fade-right" data-aos-duration="1600" routerLink="/support" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-headset"></i>
+      <span class="hidden md:block" >Support</span>
+    </a>
+
+    <a  data-aos="fade-left" data-aos-duration="1700" routerLink="/settings" routerLinkActive="bg-blue-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] hover:bg-blue-500 hover:text-white rounded-[10px] py-[10px] px-4">
+      <i class="fa-solid fa-gear"></i>
+      <span class="hidden md:block" >Settings</span>
+    </a>
+    <a  data-aos="fade-left" data-aos-duration="1700" routerLink="/settings" routerLinkActive="bg-red-500 text-white"
+      class="flex items-center gap-4 font-bold text-[18px] text-[#AEB9BE] bg-red-300 hover:bg-red-500 hover:text-white text-black rounded-[10px] py-[10px] px-4">
+      <span class="hidden md:block" (click)="logout()" >Logout</span>
+    </a>
+  </nav>
+</div>
+

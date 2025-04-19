@@ -1,0 +1,27 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div data-aos="fade-up"  data-aos-duration="1000" *ngFor="let card of analytics" class="bg-white p-5 flex jucstify-center items-center gap-4 rounded-xl shadow">
+    <div class="text-3xl  ">{{ card.icon }}</div>
+    <div  >
+      <div class=" mb-[10px] ">
+        <h4 class="text-gray-500 text-[16px]" >
+          {{ card.title }}
+        </h4>
+      </div>
+      <div >
+        <h2 class="text-xl font-semibold" >
+          {{ card.value }}
+        </h2>
+      </div>
+    </div>
+    <div class="text-end mt-auto" >
+      <div class="flex  mt-auto">
+        <h2 *ngIf="card.presentP" class="bg-green-500 text-white px-2 rounded-full flex justify-center items-center text-sm">
+          {{ card.presentP }}
+        </h2>
+        <h2 *ngIf="card.presentN" class="bg-red-500 text-white px-2 rounded-full flex justify-center items-center text-sm">
+          {{ card.presentN }}
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
