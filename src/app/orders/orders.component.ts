@@ -21,14 +21,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    AOS.init({
-      offset: 120,         // المسافة قبل بداية الأنميشن
-      delay: 500,          // تأخير الأنميشن (ms)
-      duration: 1500,      // مدة الأنميشن (ms)
-      easing: 'ease-in-out', // نوع الحركة
-      once: false,           // يتحرك مرة واحدة فقط
-      mirror: true       // ميتكررش لما تطلع وتنزل
-    });
+    AOS.init();
 
     this.orderService.getOrders().subscribe(data => {
       this.orders = data;
