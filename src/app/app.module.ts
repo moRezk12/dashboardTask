@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from './layout/layout.module';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { LayoutModule } from './layout/layout.module';
   providers: [
 
     provideCharts(withDefaultRegisterables()),
-
+    {provide : LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
